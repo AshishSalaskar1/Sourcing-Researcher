@@ -31,6 +31,8 @@ build/
 *.log
 .temp/
 tmp/
+node_modules/
+*.tsbuildinfo
 
 # Streamlit and local tooling artifacts
 .streamlit/secrets.toml

@@ -1,13 +1,17 @@
 import asyncio
 import logging
 import os
-import time
+import sys
+from pathlib import Path
 
-import httpx
 import streamlit as st
 from dotenv import load_dotenv
 
-from agents import USAGE_LIMITS, OrchestratorDeps, orchestrator
+ROOT_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
+from backend.app.services.analysis import run_supply_risk_analysis
 
 load_dotenv()
 logging.basicConfig(
@@ -36,31 +40,14 @@ if prompt := st.chat_input("Ask about supply risks for any ingredient or commodi
         with st.status("🔍 Analyzing supply chain risks...", expanded=True) as status:
             st.write("Starting multi-agent analysis...")
 
-            async def run_analysis():
-                model_name = os.environ.get("AZURE_OPENAI_MODEL", "gpt-4o")
-                logger.info("Starting analysis with model azure:%s", model_name)
-                async with httpx.AsyncClient(timeout=60) as client:
-                    return await orchestrator.run(
-                        prompt,
-                        model=f"azure:{model_name}",
-                        deps=OrchestratorDeps(http_client=client),
-                        usage_limits=USAGE_LIMITS,
-                    )
-
             try:
                 logger.info("Received prompt: %s", prompt[:200])
-                start_time = time.perf_counter()
-                result = asyncio.run(run_analysis())
-                logger.info(
-                    "Analysis completed in %.2fs",
-                    time.perf_counter() - start_time,
-                )
-                report = result.output
+                analysis = asyncio.run(run_supply_risk_analysis(prompt))
+                st.session_state.latest_analysis = analysis
+                report = analysis.report
 
-                for msg_item in result.all_messages():
-                    for part in msg_item.parts:
-                        if hasattr(part, "tool_name"):
-                            st.write(f"✅ {part.tool_name}")
+                for tool_name in analysis.tool_calls:
+                    st.write(f"✅ {tool_name}")
 
                 status.update(label="Analysis complete!", state="complete")
             except Exception as e:

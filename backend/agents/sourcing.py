@@ -4,8 +4,8 @@ import httpx
 from pydantic_ai import Agent
 from pydantic_ai.common_tools.duckduckgo import duckduckgo_search_tool
 
-from agents.models import SourcingAnalysis
-from tools.commodity import lookup_commodity_profile
+from backend.agents.models import SourcingAnalysis
+from backend.tools.commodity import lookup_commodity_profile
 
 
 @dataclass

@@ -13,8 +13,14 @@ multi-agent architecture powered by Pydantic AI and Azure AI Foundry.
 
 ```text
 ┌──────────────────────────────────────────────────┐
-│                  Streamlit UI                     │
-│              (app.py — chat interface)            │
+│          React + Vite frontend (new)              │
+│         sleek dashboard and report viewer         │
+└──────────────┬───────────────────────────────────┘
+               │ HTTP
+               ▼
+┌──────────────────────────────────────────────────┐
+│               FastAPI backend (new)               │
+│     `/api/analyze` wraps the orchestrator         │
 └──────────────┬───────────────────────────────────┘
                │
                ▼
@@ -50,19 +56,53 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+For the frontend:
+
+```bash
+cd frontend
+npm install
+```
+
 Create a `.env` file with your Azure AI Foundry credentials:
 
 ```text
 AZURE_OPENAI_API_KEY=<your-key>
 AZURE_OPENAI_ENDPOINT=<your-endpoint>
 OPENAI_API_VERSION=2024-12-01-preview
+AZURE_OPENAI_MODEL=gpt-4o
+CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
 ```
 
-## Run
+## Run the split app
 
 ```bash
-streamlit run app.py
+cd backend
+python -m uvicorn main:app --reload
 ```
+
+In another terminal:
+
+```bash
+cd frontend
+npm run dev
+```
+
+The React app defaults to `http://localhost:8000`. Override with:
+
+```bash
+VITE_API_BASE_URL=http://localhost:8000 npm run dev
+```
+
+## Legacy Streamlit prototype
+
+The original Streamlit prototype still works and now lives under `backend/` while reusing the shared backend analysis service:
+
+```bash
+cd backend
+streamlit run streamlit_app.py
+```
+
+The `backend/main.py` launcher makes the package imports resolve correctly when you start the backend from inside `backend/`.
 
 ## Example Queries
 
@@ -84,6 +124,9 @@ streamlit run app.py
 ## Tech Stack
 
 - **Pydantic AI** — Multi-agent orchestration with structured outputs
-- **Streamlit** — Interactive chat UI
+- **FastAPI** — Backend API for the orchestrator
+- **React + Vite** — Frontend application shell
+- **Shadcn-style components** — Modern, reusable UI primitives
+- **Streamlit** — Legacy prototype UI
 - **Azure AI Foundry** — GPT-4o model hosting
 - **httpx** — Async HTTP client for tool API calls

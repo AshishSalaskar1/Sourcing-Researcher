@@ -3,7 +3,7 @@ from pathlib import Path
 
 from pydantic_ai import Agent
 
-from agents.models import ResilienceOption
+from backend.agents.models import ResilienceOption
 
 _STRATEGIES_PATH = Path(__file__).resolve().parent.parent / "data" / "resilience_strategies.json"
 

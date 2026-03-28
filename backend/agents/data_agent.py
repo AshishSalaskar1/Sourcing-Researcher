@@ -5,12 +5,21 @@ import time
 import httpx
 from pydantic_ai import Agent, RunContext
 
-from agents.models import RiskAssessment
-from tools.news_search import search_public_news
-from tools.weather import fetch_weather_forecast
-from tools.world_bank import fetch_world_bank_indicator
+from backend.agents.models import RiskAssessment
+from backend.tools.news_search import search_public_news
+from backend.tools.weather import fetch_weather_forecast
+from backend.tools.world_bank import fetch_world_bank_indicator
 
 logger = logging.getLogger("supply_risk_radar.data_agent")
+
+
+def _unavailable_payload(tool_name: str, message: str, **context: str | float) -> dict:
+    return {
+        "tool": tool_name,
+        "status": "unavailable",
+        "message": message,
+        "context": context,
+    }
 
 
 @dataclass
@@ -39,9 +48,15 @@ async def fetch_weather(ctx: RunContext[DataDeps], latitude: float, longitude: f
         data = await fetch_weather_forecast(ctx.deps.http_client, latitude, longitude)
     except Exception as exc:
         logger.exception("Weather fetch failed for lat=%s lon=%s", latitude, longitude)
-        raise RuntimeError(
-            f"fetch_weather failed for coordinates ({latitude}, {longitude})"
-        ) from exc
+        return str(
+            _unavailable_payload(
+                "fetch_weather",
+                f"Weather data unavailable for coordinates ({latitude}, {longitude}).",
+                latitude=latitude,
+                longitude=longitude,
+                error=f"{type(exc).__name__}: {exc}",
+            )
+        )
     logger.info(
         "Fetched weather for lat=%s lon=%s in %.2fs",
         latitude,
@@ -76,9 +91,18 @@ async def fetch_economic_indicator(
             country_code,
             indicator,
         )
-        raise RuntimeError(
-            f"fetch_economic_indicator failed for country '{country_code}' and indicator '{indicator}'"
-        ) from exc
+        return str(
+            _unavailable_payload(
+                "fetch_economic_indicator",
+                (
+                    f"Economic indicator '{indicator}' unavailable for country "
+                    f"'{country_code}'."
+                ),
+                country_code=country_code,
+                indicator=indicator,
+                error=f"{type(exc).__name__}: {exc}",
+            )
+        )
     logger.info(
         "Fetched economic indicator %s for country %s in %.2fs",
         indicator,
@@ -97,7 +121,14 @@ async def fetch_disaster_reports(ctx: RunContext[DataDeps], query: str) -> str:
         data = await search_public_news(query)
     except Exception as exc:
         logger.exception("Public news search failed for query=%r", query)
-        raise RuntimeError(f"fetch_disaster_reports failed for query '{query}'") from exc
+        return str(
+            _unavailable_payload(
+                "fetch_disaster_reports",
+                f"Disruption search unavailable for query '{query}'.",
+                query=query,
+                error=f"{type(exc).__name__}: {exc}",
+            )
+        )
     logger.info(
         "Completed public news search for query=%r in %.2fs",
         query,
