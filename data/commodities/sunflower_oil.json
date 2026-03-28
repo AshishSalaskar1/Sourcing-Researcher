@@ -1,0 +1,50 @@
+{
+  "commodity": "sunflower_oil",
+  "aliases": ["sunflower oil", "sunflower seed oil", "high oleic sunflower oil"],
+  "primary_regions": [
+    {
+      "country": "Ukraine",
+      "country_code": "UKR",
+      "region": "Central and Southern oblasts",
+      "share_percent": 46,
+      "latitude": 48.4,
+      "longitude": 35.0
+    },
+    {
+      "country": "Russia",
+      "country_code": "RUS",
+      "region": "Southern Federal District",
+      "share_percent": 27,
+      "latitude": 46.6,
+      "longitude": 41.2
+    },
+    {
+      "country": "Argentina",
+      "country_code": "ARG",
+      "region": "Buenos Aires Province",
+      "share_percent": 8,
+      "latitude": -36.6,
+      "longitude": -60.0
+    }
+  ],
+  "concentration_risk": "Critical",
+  "typical_disruptions": [
+    "Armed conflict disrupting farming and port operations",
+    "Black Sea shipping route blockades",
+    "Export bans and quotas",
+    "Drought in Black Sea grain belt"
+  ],
+  "substitutes": ["rapeseed oil", "soybean oil", "palm oil", "safflower oil"],
+  "key_indicators": {
+    "world_bank": ["NY.GDP.MKTP.CD", "NE.TRD.GNFS.ZS", "FP.CPI.TOTL.ZG"],
+    "climate_sensitive": true,
+    "primary_season": "July-September"
+  },
+  "nd_gain": {
+    "score": 48.2,
+    "vulnerability": 0.38,
+    "readiness": 0.40,
+    "note": "Geopolitical risk dominates; conflict creates unprecedented uncertainty"
+  },
+  "risk_context": "Ukraine and Russia together accounted for roughly 80% of global sunflower oil exports before 2022. The ongoing conflict has demonstrated how geopolitical risks can cause sudden, severe supply disruption with global price cascades."
+}

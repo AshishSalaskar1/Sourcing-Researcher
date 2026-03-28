@@ -1,0 +1,102 @@
+{
+  "strategies": [
+    {
+      "id": "supplier_diversification",
+      "name": "Supplier Diversification",
+      "description": "Source from multiple countries/suppliers to reduce concentration risk",
+      "cost_impact": "Medium",
+      "timeline": "3-6 months",
+      "best_for": ["supplier", "geopolitical", "climate"]
+    },
+    {
+      "id": "inventory_buffering",
+      "name": "Inventory Buffering",
+      "description": "Build strategic safety stock to buffer against short-term disruptions",
+      "cost_impact": "High",
+      "timeline": "1-3 months",
+      "best_for": ["logistics", "market", "biological"]
+    },
+    {
+      "id": "substitution",
+      "name": "Substitution / Reformulation",
+      "description": "Qualify alternative ingredients that can replace the primary commodity",
+      "cost_impact": "Medium",
+      "timeline": "6-12 months",
+      "best_for": ["climate", "market", "regulatory"]
+    },
+    {
+      "id": "nearshoring",
+      "name": "Nearshoring / Reshoring",
+      "description": "Shift sourcing to geographically closer or more stable regions",
+      "cost_impact": "High",
+      "timeline": "6-18 months",
+      "best_for": ["geopolitical", "logistics", "supplier"]
+    },
+    {
+      "id": "contract_hedging",
+      "name": "Contract Hedging",
+      "description": "Lock in prices and volumes through forward contracts and hedging instruments",
+      "cost_impact": "Low",
+      "timeline": "1-3 months",
+      "best_for": ["market", "geopolitical"]
+    },
+    {
+      "id": "vertical_integration",
+      "name": "Vertical Integration",
+      "description": "Acquire or invest in upstream production capacity",
+      "cost_impact": "Very High",
+      "timeline": "12-24 months",
+      "best_for": ["supplier", "market", "esg"]
+    },
+    {
+      "id": "demand_shaping",
+      "name": "Demand Shaping",
+      "description": "Adjust product mix or promotions to shift demand away from constrained ingredients",
+      "cost_impact": "Low",
+      "timeline": "1-3 months",
+      "best_for": ["logistics", "market", "climate"]
+    },
+    {
+      "id": "logistics_diversification",
+      "name": "Logistics Diversification",
+      "description": "Use multiple shipping routes, carriers, and ports to reduce transit risk",
+      "cost_impact": "Medium",
+      "timeline": "3-6 months",
+      "best_for": ["logistics", "geopolitical"]
+    },
+    {
+      "id": "information_sharing",
+      "name": "Information Sharing",
+      "description": "Establish real-time data sharing with key suppliers for early warning",
+      "cost_impact": "Low",
+      "timeline": "1-3 months",
+      "best_for": ["supplier", "biological", "esg"]
+    },
+    {
+      "id": "flexible_capacity",
+      "name": "Flexible Capacity",
+      "description": "Maintain flexible manufacturing capacity to adapt to ingredient availability",
+      "cost_impact": "High",
+      "timeline": "6-12 months",
+      "best_for": ["market", "climate", "biological"]
+    },
+    {
+      "id": "compliance_readiness",
+      "name": "Compliance Readiness",
+      "description": "Proactively prepare for regulatory changes with documentation, audits, and certification",
+      "cost_impact": "Medium",
+      "timeline": "3-6 months",
+      "best_for": ["regulatory", "esg"]
+    }
+  ],
+  "risk_to_strategy_matrix": {
+    "climate": ["supplier_diversification", "inventory_buffering", "substitution", "flexible_capacity"],
+    "geopolitical": ["supplier_diversification", "nearshoring", "contract_hedging", "logistics_diversification"],
+    "logistics": ["logistics_diversification", "inventory_buffering", "demand_shaping", "nearshoring"],
+    "market": ["contract_hedging", "inventory_buffering", "substitution", "demand_shaping"],
+    "regulatory": ["compliance_readiness", "supplier_diversification", "substitution"],
+    "supplier": ["supplier_diversification", "vertical_integration", "nearshoring", "information_sharing"],
+    "biological": ["inventory_buffering", "substitution", "supplier_diversification", "information_sharing"],
+    "esg": ["compliance_readiness", "supplier_diversification", "information_sharing", "vertical_integration"]
+  }
+}

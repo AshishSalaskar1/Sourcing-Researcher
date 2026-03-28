@@ -1,0 +1,50 @@
+{
+  "commodity": "guar_gum",
+  "aliases": ["guar gum", "guar bean", "guar powder", "guar gum powder", "cyamopsis tetragonoloba"],
+  "primary_regions": [
+    {
+      "country": "India",
+      "country_code": "IND",
+      "region": "Rajasthan",
+      "share_percent": 80,
+      "latitude": 26.9,
+      "longitude": 70.9
+    },
+    {
+      "country": "Pakistan",
+      "country_code": "PAK",
+      "region": "Sindh / Punjab",
+      "share_percent": 10,
+      "latitude": 27.0,
+      "longitude": 68.5
+    },
+    {
+      "country": "United States",
+      "country_code": "USA",
+      "region": "Texas / Oklahoma",
+      "share_percent": 3,
+      "latitude": 32.0,
+      "longitude": -100.0
+    }
+  ],
+  "concentration_risk": "Critical",
+  "typical_disruptions": [
+    "Monsoon failure or delayed onset in Rajasthan",
+    "Desert locust swarm damage",
+    "Oil and gas demand spikes (fracking grade guar)",
+    "Export duty changes by Indian government"
+  ],
+  "substitutes": ["xanthan gum", "locust bean gum", "cellulose derivatives", "modified starch"],
+  "key_indicators": {
+    "world_bank": ["NY.GDP.MKTP.CD", "AG.LND.ARBL.ZS", "FP.CPI.TOTL.ZG"],
+    "climate_sensitive": true,
+    "primary_season": "July-October (monsoon crop)"
+  },
+  "nd_gain": {
+    "score": 43.5,
+    "vulnerability": 0.47,
+    "readiness": 0.35,
+    "note": "High climate sensitivity; Rajasthan is semi-arid and monsoon-dependent"
+  },
+  "risk_context": "India's Rajasthan state alone produces approximately 80% of the global guar supply. Production is entirely monsoon-dependent, making it extremely sensitive to climate variability. Guar gum is also critical for oil and gas fracking, creating cross-sector demand competition."
+}

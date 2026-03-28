@@ -1,0 +1,50 @@
+{
+  "commodity": "palm_oil",
+  "aliases": ["palm oil", "palm kernel oil", "palm fat", "palm olein"],
+  "primary_regions": [
+    {
+      "country": "Indonesia",
+      "country_code": "IDN",
+      "region": "Sumatra / Kalimantan",
+      "share_percent": 58,
+      "latitude": 0.5,
+      "longitude": 101.5
+    },
+    {
+      "country": "Malaysia",
+      "country_code": "MYS",
+      "region": "Sabah / Sarawak",
+      "share_percent": 27,
+      "latitude": 5.5,
+      "longitude": 118.0
+    },
+    {
+      "country": "Thailand",
+      "country_code": "THA",
+      "region": "Southern Thailand",
+      "share_percent": 4,
+      "latitude": 8.5,
+      "longitude": 99.0
+    }
+  ],
+  "concentration_risk": "High",
+  "typical_disruptions": [
+    "Indonesian export bans and levies",
+    "El Niño-driven droughts reducing yields",
+    "EU Deforestation Regulation (EUDR) compliance",
+    "Labour shortage in Malaysian plantations"
+  ],
+  "substitutes": ["sunflower oil", "rapeseed oil", "shea butter", "coconut oil"],
+  "key_indicators": {
+    "world_bank": ["NY.GDP.MKTP.CD", "NE.TRD.GNFS.ZS", "FP.CPI.TOTL.ZG"],
+    "climate_sensitive": true,
+    "primary_season": "Year-round (peak Feb-May)"
+  },
+  "nd_gain": {
+    "score": 47.5,
+    "vulnerability": 0.40,
+    "readiness": 0.38,
+    "note": "Moderate vulnerability, growing regulatory risks from EUDR"
+  },
+  "risk_context": "Indonesia and Malaysia together supply approximately 85% of global palm oil. Both countries have imposed export restrictions in recent years. EU deforestation regulations are reshaping supply chains, and ESG concerns remain persistent."
+}

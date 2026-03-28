@@ -1,0 +1,50 @@
+{
+  "commodity": "cocoa",
+  "aliases": ["cocoa beans", "cocoa butter", "cocoa powder", "cacao"],
+  "primary_regions": [
+    {
+      "country": "Côte d'Ivoire",
+      "country_code": "CIV",
+      "region": "Bas-Sassandra",
+      "share_percent": 45,
+      "latitude": 5.3,
+      "longitude": -6.8
+    },
+    {
+      "country": "Ghana",
+      "country_code": "GHA",
+      "region": "Western Region",
+      "share_percent": 25,
+      "latitude": 5.5,
+      "longitude": -2.5
+    },
+    {
+      "country": "Ecuador",
+      "country_code": "ECU",
+      "region": "Los Ríos",
+      "share_percent": 7,
+      "latitude": -1.6,
+      "longitude": -79.5
+    }
+  ],
+  "concentration_risk": "High",
+  "typical_disruptions": [
+    "Swollen shoot virus disease (CSSVD) outbreaks",
+    "Harmattan dry winds reducing yields",
+    "Child labor and ESG compliance pressures",
+    "Smuggling across borders distorting supply data"
+  ],
+  "substitutes": ["carob powder", "compound chocolate coatings"],
+  "key_indicators": {
+    "world_bank": ["NY.GDP.MKTP.CD", "FP.CPI.TOTL.ZG", "AG.LND.ARBL.ZS"],
+    "climate_sensitive": true,
+    "primary_season": "October-March"
+  },
+  "nd_gain": {
+    "score": 36.5,
+    "vulnerability": 0.48,
+    "readiness": 0.27,
+    "note": "High climate vulnerability in West Africa, limited adaptive capacity"
+  },
+  "risk_context": "West Africa produces approximately 70% of global cocoa. Côte d'Ivoire and Ghana are neighbours sharing similar climate risks, making concurrent disruption plausible. CSSVD has destroyed millions of trees, and EU deforestation regulations add regulatory pressure."
+}

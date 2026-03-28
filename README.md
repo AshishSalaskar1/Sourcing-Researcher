@@ -30,10 +30,10 @@ multi-agent architecture powered by Pydantic AI and Azure AI Foundry.
 └──────┬──────┘ └──────┬──────┘ └─────────────────┘
        │               │
        ▼               ▼
-┌─────────────┐ ┌─────────────────────────────────┐
-│ Commodity   │ │ World Bank · Weather · ReliefWeb │
-│ Tool        │ │ (data tools)                     │
-└─────────────┘ └─────────────────────────────────┘
+┌─────────────┐ ┌────────────────────────────────────┐
+│ Commodity   │ │ World Bank · Weather · Public News │
+│ Tool        │ │ (data tools)                       │
+└─────────────┘ └────────────────────────────────────┘
 ```
 
 ## Prerequisites
@@ -78,7 +78,7 @@ streamlit run app.py
 |---|---|
 | World Bank | GDP, inflation, and economic indicators |
 | Open-Meteo | Historical weather and climate data |
-| ReliefWeb | Humanitarian alerts and disaster reports |
+| DuckDuckGo News | Public news coverage for disruptions and current events |
 | ND-GAIN | Country climate vulnerability scores |
 
 ## Tech Stack

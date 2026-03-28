@@ -1,0 +1,49 @@
+{
+  "commodity": "vanilla",
+  "aliases": ["vanilla extract", "vanilla beans", "vanillin"],
+  "primary_regions": [
+    {
+      "country": "Madagascar",
+      "country_code": "MDG",
+      "region": "SAVA Region",
+      "share_percent": 80,
+      "latitude": -14.9,
+      "longitude": 50.3
+    },
+    {
+      "country": "Indonesia",
+      "country_code": "IDN",
+      "region": "East Java",
+      "share_percent": 6,
+      "latitude": -7.6,
+      "longitude": 112.8
+    },
+    {
+      "country": "Uganda",
+      "country_code": "UGA",
+      "region": "Mukono District",
+      "share_percent": 3,
+      "latitude": 0.35,
+      "longitude": 32.75
+    }
+  ],
+  "concentration_risk": "Critical",
+  "typical_disruptions": [
+    "Cyclone damage to crops (Nov-Apr season)",
+    "Political instability affecting exports",
+    "Theft and security issues during harvest"
+  ],
+  "substitutes": ["synthetic vanillin", "ethyl vanillin", "tonka bean extract"],
+  "key_indicators": {
+    "world_bank": ["NY.GDP.MKTP.CD", "FP.CPI.TOTL.ZG"],
+    "climate_sensitive": true,
+    "primary_season": "June-September"
+  },
+  "nd_gain": {
+    "score": 33.0,
+    "vulnerability": 0.56,
+    "readiness": 0.22,
+    "note": "Very high climate vulnerability, very low readiness"
+  },
+  "risk_context": "Single-country concentration exceeding 80% creates extreme fragility. Madagascar alone accounts for most of the world's natural vanilla supply. Any climate event, political disruption, or export restriction has immediate global supply impact."
+}

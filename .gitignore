@@ -1,0 +1,43 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Python environments
+.venv/
+venv/
+env/
+
+# Python cache and build artifacts
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Logs and temp files
+*.log
+.temp/
+tmp/
+
+# Streamlit and local tooling artifacts
+.streamlit/secrets.toml
+.copilot-tracking/
+
+# Editors and OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
